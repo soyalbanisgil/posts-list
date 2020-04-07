@@ -1,0 +1,30 @@
+.posts-lists {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    padding-bottom: 1rem;
+}
+
+.posts-lists h3, p{
+    text-align: left;
+}
+
+.posts-lists h3 {
+    color: #1A86AD;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 600px) {
+    .posts-lists {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .posts-lists {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

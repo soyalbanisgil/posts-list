@@ -1,0 +1,12 @@
+.search {
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
+
+.searchBox {
+    padding: 0.8rem;
+    width: 300px;
+    outline: none;
+    border-radius: 1rem;
+    border: 1px solid rgba(0,0,0,0.2);
+}

@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
+import { PostsList } from './components/posts-list/posts-list.component';
+import { Nav } from './components/nav/nav.component'
+import { SearchBox } from './components/serach-box/search-box.component'
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      searchBox: ''
+    };
+  }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(postsList => this.setState({ posts: postsList }));
+  }
+
+  handleChange = e => {
+    this.setState({ searchBox: e.target.value });
+  }
+
+  render() {
+    const { posts, searchBox } = this.state;
+
+    const filteredPosts = posts.filter(post => 
+      post.title.toLowerCase().includes(searchBox.toLowerCase())
+      )
+
+    return(
+      <div className="App">
+        <Nav />
+
+        <SearchBox
+          placeholder="search post title"
+          handleChange={this.handleChange}
+        />
+
+        <PostsList posts={filteredPosts} />
+        
+      </div>
+    )
+  }
 }
 
 export default App;
