@@ -1,3 +1,12 @@
+## ABOUT THE APP
+This is a simple project created with React.js using the JSONPlaceholder REST API.
+
+Display a list of posts/articles. A search input that filter the posts by title.
+
+Responsive Development to adapt to small, medium and large size screen.
+
+
+## DEFAULT REACT READ.ME
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
